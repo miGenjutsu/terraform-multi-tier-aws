@@ -15,7 +15,7 @@ As new guides cross my path to assist in my knowledge and understanding of how t
 **Automate Multi-Tier AWS Infrastructure**
 
 ## 📦 Objective
-Objective: Create a multi-tier AWS infrastructure with Terraform, comprising a VPC, public and private subnets, an EC2 instance in the private subnet, an Application Load Balancer (ALB) in the public subnet, and a relational database (Amazon RDS) in the private subnet.
+**Objective**: Create a multi-tier AWS infrastructure with Terraform, comprising a ***VPC***, ***public*** and ***private*** ***subnets***, an ***EC2 instance*** in the **private subnet**, an ***Application Load Balancer (ALB)*** in the **public subnet**, and a ***relational database (Amazon RDS)*** in the **private subnet**.
 
 ## 📡 Guides
 [HashiCorp: Infrastructure enables innovation](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjdiPy21bGAAxUpg4QIHfR1CJIQFnoECCQQAQ&url=https%3A%2F%2Fwww.hashicorp.com%2F&usg=AOvVaw1zBH3tgwAzc-y83R3HZWQF&opi=89978449)
