@@ -43,3 +43,47 @@ variable "priv_sub_tag" {
     default = "private_subnet"
 }
 
+
+# INTERNET GATEWAY
+variable "igw_tag" {
+    description = "internet gateway tag"
+    type = string
+    default = "igw_tag"
+}
+
+variable "public_rules" {
+    type = list(object({
+        port = number
+        porto = string
+        cidr_blocks = list(string)
+    }))
+    default = [
+        {
+            port = 80
+            porto = "tcp"
+            cidr_blocks = ["0.0.0.0/0"]
+        },
+        {
+            port = 22
+            porto = "tcp"
+            cidr_blocks = ["0.0.0.0/0"]
+        }
+        # {
+        #     port = 3689
+        #     porto = "tcp"
+        #     cidr_blocks = [""]
+        # }
+    ]
+}
+
+variable "sg_apache_tag" {
+    description = "security group tag for WebServer"
+    type = string
+    default = "web-server_security_group"
+}
+
+variable "sg_rds_tag" {
+    description = "security group for RDS Database"
+    type = string
+    default = "rds_security_group"
+}
