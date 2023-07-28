@@ -73,8 +73,8 @@ resource "aws_security_group" "sg_rds" {
         protocol = "tcp"
         # cidr_blocks = ["10.0.0.0/24"] # replace this with the actual source IP range of your application servers
     }
-
-    tags = {
-        Name = var.sg_rds_tag
-    }
+#---- UNCOMMENT!!!!!!!!!!!!!!
+    # tags = {
+    #     Name = var.sg_rds_tag
+    # }
 }
