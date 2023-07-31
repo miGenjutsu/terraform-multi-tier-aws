@@ -27,8 +27,15 @@ module "network-base" {
   rtb_tag = var.rtb_tag
 }
 
-# module "compute-base" {
-#   source = "./modules/aws/compute-base/"
-#   public_subnet_id = module.network-base.public_subnet_output
-#   security_group_webserver_id = module.network-base.sg_webserver_output
-# }
+module "compute-base" {
+  source = "./modules/aws/compute-base/"
+
+  ws_tag = var.ws_tag
+  public_subnet_id = var.public_subnet_id
+  instance_type = var.instance_type
+  security_group_webserver_id = var.security_group_webserver_id
+  webserver_tag = var.webserver_tag
+  private_subnet_id = var.private_subnet_id
+  # prvate_security_group_id = var.private_security_group_id
+  database_tag = var.database_tag
+}
