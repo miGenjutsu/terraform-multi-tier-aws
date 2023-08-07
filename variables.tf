@@ -11,19 +11,19 @@ variable "aws_region" {
   default     = "us-east-1"
 }
 
-variable "cidr_range" {
-  description = "cidr range for vpc"
-  type        = string
-  default     = "172.69.0.0/16"
-}
+# variable "cidr_range" {
+#   description = "cidr range for vpc"
+#   type        = string
+#   default     = "172.69.0.0/16"
+# }
 
-variable "vpc_tag" {
-  description = "vpc tag name"
-  type        = string
-  default     = "vpc_name"
-}
+# variable "vpc_tag" {
+#   description = "vpc tag name"
+#   type        = string
+#   default     = "vpc_name"
+# }
 
-# PUBLIC SUBNET
+# # PUBLIC SUBNET
 variable "pub_sub_cidr" {
   description = "public subnet cidr range"
   type        = string
@@ -37,7 +37,7 @@ variable "pub_sub_tag" {
 }
 
 
-# PRVATE SUBNETS
+## PRVATE SUBNETS
 variable "priv_sub_cidr" {
   description = "private subnet cidr range"
   type        = string
@@ -51,105 +51,105 @@ variable "priv_sub_tag" {
 }
 
 
-# INTERNET GATEWAY
-variable "igw_tag" {
-  description = "internet gateway tag"
-  type        = string
-  default     = "igw_tag"
-}
-
-# variable "public_rules" {
-#   type = list(object({
-#     port        = number
-#     porto       = string
-#     cidr_blocks = list(string)
-#   }))
-#   default = [
-#     {
-#       port        = 80
-#       porto       = "tcp"
-#       cidr_blocks = ["0.0.0.0/0"]
-#     },
-#     {
-#       port        = 22
-#       porto       = "tcp"
-#       cidr_blocks = ["0.0.0.0/0"]
-#     }
-#     # {
-#     #     port = 3689
-#     #     porto = "tcp"
-#     #     cidr_blocks = [""]
-#     # }
-#   ]
+# # INTERNET GATEWAY
+# variable "igw_tag" {
+#   description = "internet gateway tag"
+#   type        = string
+#   default     = "igw_tag"
 # }
 
-variable "sg_apache_tag" {
-  description = "security group tag for WebServer"
-  type        = string
-  default     = "web-server_security_group"
-}
+# # variable "public_rules" {
+# #   type = list(object({
+# #     port        = number
+# #     porto       = string
+# #     cidr_blocks = list(string)
+# #   }))
+# #   default = [
+# #     {
+# #       port        = 80
+# #       porto       = "tcp"
+# #       cidr_blocks = ["0.0.0.0/0"]
+# #     },
+# #     {
+# #       port        = 22
+# #       porto       = "tcp"
+# #       cidr_blocks = ["0.0.0.0/0"]
+# #     }
+# #     # {
+# #     #     port = 3689
+# #     #     porto = "tcp"
+# #     #     cidr_blocks = [""]
+# #     # }
+# #   ]
+# # }
 
-variable "sg_rds_tag" {
-  description = "security group for RDS Database"
-  type        = string
-  default     = "rds_security_group"
-}
+# variable "sg_apache_tag" {
+#   description = "security group tag for WebServer"
+#   type        = string
+#   default     = "web-server_security_group"
+# }
 
-#--- Route Table
-variable "rtb_tag" {
-  description = "route table rag"
-  type = string
-  default = "rtb_tag"
-}
+# variable "sg_rds_tag" {
+#   description = "security group for RDS Database"
+#   type        = string
+#   default     = "rds_security_group"
+# }
+
+# #--- Route Table
+# variable "rtb_tag" {
+#   description = "route table rag"
+#   type = string
+#   default = "rtb_tag"
+# }
 
 
-## --- Copmute-Base
-#----------------------------------------------#
-# compute-base: variables                      #
-# ./modules/aws/compute-base/variables.tf      #
-#----------------------------------------------#
+# ## --- Copmute-Base
+# #----------------------------------------------#
+# # compute-base: variables                      #
+# # ./modules/aws/compute-base/variables.tf      #
+# #----------------------------------------------#
 
 
-variable "ws_tag" {
-  description = "webserver tag name"
-  type        = string
-  default     = "webserver_tag"
-}
+# variable "ws_tag" {
+#   description = "webserver tag name"
+#   type        = string
+#   default     = "webserver_tag"
+# }
 
-variable "public_subnet_id" {
-  description = "public subnet id"
-  type        = string
-}
+# variable "public_subnet_id" {
+#   description = "public subnet id"
+#   type        = string
+# }
 
-variable "instance_type" {
-  description = "instance type used"
-  type        = string
-  default     = "t2.micro"
-}
+# variable "instance_type" {
+#   description = "instance type used"
+#   type        = string
+#   default     = "t2.micro"
+# }
 
-variable "security_group_webserver_id" {
-  description = "security group used"
-  type        = string
-}
+# variable "security_group_webserver_id" {
+#   description = "security group used"
+#   type        = string
+# }
 
-variable "webserver_tag" {
-  description = "webserver tag name"
-  type        = string
-  default     = "webserver_tag"
-}
+# variable "webserver_tag" {
+#   description = "webserver tag name"
+#   type        = string
+#   default     = "webserver_tag"
+# }
 
-variable "private_subnet_id" {
-  description = "private subnet from network-base"
-  type        = string
-}
+# variable "private_subnet_id" {
+#   description = "private subnet from network-base"
+#   type        = string
+# }
 
-variable "private_security_group_id" {
-  description = "private security group from network-base"
-  type        = string
-}
+# variable "private_security_group_id" {
+#   description = "private security group from network-base"
+#   type        = string
+# }
 
-variable "database_tag" {
-  description = "database tag name"
-  type        = string
-  default     = "rds-database"
-}
+# variable "database_tag" {
+#   description = "database tag name"
+#   type        = string
+#   default     = "rds-database"
+# }

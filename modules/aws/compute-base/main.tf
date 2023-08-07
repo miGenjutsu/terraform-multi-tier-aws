@@ -11,8 +11,8 @@ data "aws_ssm_parameter" "ami_id" {
 # Key Pair
 resource "aws_key_pair" "deployer" {
   key_name   = "provision_key"
-#   public_key = file("~/.ssh/terraform_multi_init.pub")  envy:wsl::ubuntu
-  public_key = file("~/.ssh/terraform_multi_init.pub") # work:wsl::ubuntu
+  public_key = file("~/.ssh/terraform_multi_init.pub") # envy:wsl::ubuntu
+  # public_key = file("~/.ssh/terraform_multi_init.pub") # work:wsl::ubuntu
 }
 
 resource "aws_instance" "apache_ws" {
@@ -25,24 +25,26 @@ resource "aws_instance" "apache_ws" {
   user_data                   = fileexists("files/apache_install.sh") ? file("files/apache_install.sh") : null
 
   tags = {
-    Name = var.webserver_tag
+    # Name = var.webserver_tag
+    Name = var.ws_tag
   }
 }
 
 
 # Database 
 resource "aws_instance" "database_instance" {
-  ami             = data.aws_ssm_parameter.ami_id.value
-  subnet_id       = var.private_subnet_id
-  instance_type   = var.instance_type
-  security_groups = [var.private_security_group_id]
-  # associate_public_ip_address = true
-  key_name = aws_key_pair.deployer.key_name
+  ami           = data.aws_ssm_parameter.ami_id.value
+  subnet_id     = var.private_subnet_id
+  instance_type = var.instance_type
+  # security_groups = [var.private_security_group_id]
+  associate_public_ip_address = true
+  key_name                    = aws_key_pair.deployer.key_name
   # user_data                   = fileexists("./files/mysql_install.sh") ? file("./files/mysql_install.sh") : null
   # user_data = file("files/mysql_install.sh")
 
 
   tags = {
+    # Name = var.database_tag
     Name = var.database_tag
   }
 }
