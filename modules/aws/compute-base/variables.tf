@@ -7,7 +7,7 @@
 variable "ws_tag" {
   description = "webserver tag name"
   type        = string
-  # default     = "webserver_tag"
+  default     = "webserver_tag"
 }
 
 variable "public_subnet_id" {
@@ -18,7 +18,7 @@ variable "public_subnet_id" {
 variable "instance_type" {
   description = "instance type used"
   type        = string
-  # default     = "t2.micro"
+  default     = "t2.micro"
 }
 
 variable "security_group_webserver_id" {
@@ -29,13 +29,12 @@ variable "security_group_webserver_id" {
 variable "webserver_tag" {
   description = "webserver tag name"
   type        = string
-  # default     = "webserver_tag"
+  default     = "webserver_tag"
 }
 
 variable "private_subnet_id" {
   description = "private subnet from network-base"
   type        = string
-
 }
 
 # variable "private_security_group_id" {
@@ -46,5 +45,5 @@ variable "private_subnet_id" {
 variable "database_tag" {
   description = "database tag name"
   type        = string
-  # default     = "rds-database"
+  default     = "rds-database"
 }
